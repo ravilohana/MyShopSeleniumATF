@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Web App Login" parallel="methods" thread-count="6"  >
+<!--    <listeners>-->
+<!--        <listener class-name="com.ui.listeners.RetryListeners"/>-->
+<!--    </listeners>-->
+    <test verbose="2" name="Login with test data">
+        <parameter name="browser" value="${browser}"></parameter>
+        <parameter name="isLambdaTest" value="${isLambdaTest}"></parameter>
+        <parameter name="isHeadless" value="${isHeadless}"></parameter>
+        <classes>
+            <class name="com.ui.test.LoginTest">
+<!--                <methods>-->
+<!--                    <include name="loginTestXLSXCredentials"/>-->
+<!--                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>
