@@ -41,6 +41,7 @@ public class TestListeners implements ITestListener {
         logger.error(result.getMethod().getMethodName() + " " + "FAILED");
         logger.error(result.getThrowable().getMessage());
         ExtentReporterUtility.getTest().log(Status.FAIL, result.getMethod().getMethodName() + " " + "FAILED");
+        ExtentReporterUtility.getTest().log(Status.FAIL,result.getThrowable().getMessage());
 
         Object testClass = result.getInstance();
 
