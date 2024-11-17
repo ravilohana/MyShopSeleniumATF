@@ -14,6 +14,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -130,7 +132,9 @@ public abstract class BrowserUtility {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         String timeStamp = format.format(date);
-        String path = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + name + "_" + timeStamp + ".PNG";
+        String screenshotFolderName = "screenshots";
+        String screenshotFileName = name + "_" + timeStamp + ".PNG";
+        String path = getPath(screenshotFolderName,screenshotFileName);
         File screenShotData = screenshot.getScreenshotAs(OutputType.FILE);
         File screenShotFile = new File(path);
 
@@ -149,6 +153,15 @@ public abstract class BrowserUtility {
 
     public void quitDriver() {
         getDriver().quit();
+    }
+
+    // get path
+
+    public String getPath(String folderName,String fileName){
+        Path currDirWork = Paths.get("").toAbsolutePath();
+        Path filePath = currDirWork.resolve(Paths.get(folderName,fileName));
+        return filePath.toString();
+
     }
 
 }
