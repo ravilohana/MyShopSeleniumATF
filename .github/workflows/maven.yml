@@ -43,11 +43,11 @@ jobs:
           name: screenshots
           path: screenshots/
 
-      - name: Upload Extent Test Reports
+      - name: Upload HTML Extent Test Reports as Artifacts
         if: always()
         uses: actions/upload-artifact@v4.4.3
         with:
-          name: Test Reports
+          name: html-report
           path: ExtentReports/extent_report.html
 
       - name: Test Execution Status
@@ -59,7 +59,7 @@ jobs:
 
         run: |
           mkdir: -p public/extent-reports
-          cp -R report.html public/extent-reports/
+          cp -R ExtentReports/extent_report.html public/extent-reports/
           cp -R screenshots/ public/extent-reports/screenshots/
           ls -l
 
