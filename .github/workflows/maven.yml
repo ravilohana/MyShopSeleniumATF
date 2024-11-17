@@ -68,7 +68,7 @@ jobs:
         uses:  JamesIves/github-pages-deploy-action@4
         with:
           folder: public/extent-reports/
-          token: ${{ secret.MYSHOPPAT01 }}
+          token: ${{ secrets.MYSHOPPAT01 }}
           clean: true
         
 
