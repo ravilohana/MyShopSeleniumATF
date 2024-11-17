@@ -38,7 +38,7 @@ public class TestBase {
 
             // running test in local machine
             logger.info("Load the Home page of the web app MyShop");
-            homePage = new HomePage(Browser.valueOf(browser.toUpperCase()), isHeadless);
+            homePage = new HomePage(Browser.valueOf("chrome".toUpperCase()), isHeadless);
 
         }
 
